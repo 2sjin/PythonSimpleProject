@@ -1,6 +1,6 @@
 # Python Simple Project
 
-Unity(C#), Roblox(Lua) 등 인디게임 실습 결과물을 모아둔 저장소입니다.
+간단한 Python 결과물을 모아둔 저장소입니다. (두근두근 파이썬 연습문제 포함)
 
 ---
 
