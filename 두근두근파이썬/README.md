@@ -12,7 +12,10 @@
 |ch09-3.py|![image](https://user-images.githubusercontent.com/91407433/158049113-e73c9a49-c88b-438b-9e46-07a386e83e94.png)|
 |ch10-2.py|![image](https://user-images.githubusercontent.com/91407433/158049141-dc409465-52fe-4815-a1a7-63b42124d0c6.png)|
 |ch10-4.py|![image](https://user-images.githubusercontent.com/91407433/158049153-9a966c9b-09bd-46dc-bf49-8208505fadda.png)|
-
+|ch13-1.py|![image](https://user-images.githubusercontent.com/91407433/158053385-5229036e-555d-4f55-9702-86b7a08a2d8b.png)|
+|ch13-2.py|![image](https://user-images.githubusercontent.com/91407433/158053405-c13d34e3-6580-4e0d-bcdb-d3bc78f9ce04.png)|
+|ch13-3.py|![image](https://user-images.githubusercontent.com/91407433/158053418-4708bfef-aaaa-4d29-8806-9ba5f5683a29.png)|
+|ch13-4.py|![image](https://user-images.githubusercontent.com/91407433/158053429-f8f7f655-96fb-4d54-a7c8-0d4d5cf8ee74.png)|
 --- 
 
 ## CHAPTER 14 본문(슈팅 게임 프로젝트)
