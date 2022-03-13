@@ -2,7 +2,9 @@
 
 ---
 
-## ch14 - CHAPTER 14 본문
+## ch14.py
+CHAPTER 14 본문(볼 슈팅 게임)
+
 ![image](https://user-images.githubusercontent.com/91407433/156975660-9d1314d8-54bf-4413-ba6f-e34cc4ae21ba.png)
 
 - 조작법
