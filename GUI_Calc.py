@@ -5,7 +5,24 @@ window = Tk()
 window.title("Calc")
 window.geometry("350x190")
 
-# 다음 버튼을 눌렀을 때 초기화 여부
+def key_input(value):
+    print(value)
+    if value.keysym in '0123456789':
+        pressed_num(value.char)
+    elif value.keysym == 'period':
+        pressed_dot()
+    elif value.keysym in ('plus', 'minus', 'asterisk', 'slash'):
+        pressed_op(value.char)
+    elif value.keysym in ('equal', 'Return'):
+        get_result()
+    elif value.keysym == 'Escape':
+        reset()
+    elif value.keysym == 'BackSpace':
+        backspace()
+    else:
+        return
+
+# 입력을 하였을 때 엔트리 초기화 여부
 next_reset = True
 
 # 함수: 숫자 버튼 눌렀을 때
@@ -19,17 +36,14 @@ def pressed_num(value):
 # 함수: 소수점(.) 버튼 눌렀을 때
 def pressed_dot():
     global next_reset
-    display = entry.get()
-    if display and display[-1].isdigit():
+    if entry.get() and entry.get()[-1].isdigit():
         entry.insert("end", '.')   # 엔트리의 끝부분에 입력한 숫자 추가
     next_reset = False
 
 # 함수: 연산자 버튼 눌렀을 때
 def pressed_op(op):
     global next_reset
-    display = entry.get()
-
-    if display[-1].isdigit():
+    if entry.get()[-1].isdigit():
         get_result()
         next_reset = False
         entry.insert("end", f"{op}")   # 엔트리의 끝부분에 입력한 연산자 추가
@@ -59,6 +73,8 @@ def reset():
 # 함수: 한 칸 지우기
 def backspace():
     entry.delete(len(entry.get())-1, "end")   # 인덱스 끝부분의 엔트리 문자열 제거
+    if not entry.get():
+        reset()
 
 # 결과 표시창
 entry_value = StringVar(window, value='')
@@ -111,7 +127,9 @@ btn_equal.grid(row=5, column=2)
 btn_AC.grid(row=1, column=2)
 btn_back.grid(row=1, column=3)
 
+# 키 입력
+window.bind("<Key>", key_input)
+
 # 윈도우 출력
 reset()
-
 window.mainloop()
