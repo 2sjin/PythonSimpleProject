@@ -26,3 +26,15 @@ Python 언어로 간단하게 프로그래밍을 연습한 결과물들을 모�
 |지뢰 수|필드 내의 지뢰 수|0|게임 난이도|
 
 ---
+
+## 계산기(Calculator)
+
+![image](https://user-images.githubusercontent.com/91407433/158368124-472a9188-e477-426f-90a5-4d4d7d4e2ccb.png)
+
+---
+
+## 갤러리(Gallery)
+
+![image](https://user-images.githubusercontent.com/91407433/158368427-460a0ed4-b08a-4af8-853a-219599c7c34f.png)
+
+---
