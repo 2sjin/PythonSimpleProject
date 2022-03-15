@@ -1,8 +1,19 @@
-from email import message
-from fileinput import filename
+#############################################################################################
+
+import os
+
 from tkinter import *
 from tkinter import messagebox
-from time import *
+from tkinter.filedialog import *
+from tkinter.simpledialog import *
+
+#############################################################################################
+
+# 허용 확장자
+FILE_TYPES = (("PNG 파일", "*.png"), ("GIF 파일", "*.gif"), ("JPG 파일", "*.jpg"), ("모든 파일", "*.*"))
+
+WINDOW_SIZE = (400, 500)
+IMAGE_DIR = "image/"    # 이미지 디렉토리
 
 #############################################################################################
 
@@ -46,28 +57,40 @@ def image_click(event):
 # 체크박스 선택 시 호출되는 함수
 def func_cb():
     if chk.get() == 0:
-        label_state.configure(text="체크 OFF")
+        label_state.configure(text="체크박스 OFF")
     else:
-        label_state.configure(text="체크 ON")
+        label_state.configure(text="체크박스 ON")
 
 # 라디오박스 선택 시 호출되는 함수
 def func_rb():
     if var.get() == 1:
-        label_state.configure(text="파이썬 선택됨")
+        label_state.configure(text="라디오버튼 A 선택됨")
     elif var.get() == 2:
-        label_state.configure(text="C++ 선택됨")
+        label_state.configure(text="라디오버튼 B 선택됨")
     elif var.get() == 3:
-        label_state.configure(text="Java 선택됨")
+        label_state.configure(text="라디오버튼 C 선택됨")
     else:
         label_state.configure(text="Error")
 
 #############################################################################################
 
+# 파일 열기 함수
+def file_open():
+    opened_file = askopenfilename(parent=window, filetypes=FILE_TYPES)
+    if opened_file != "":     # 파일 탐색기를 취소하지 않을 경우에만 새 이미지 로드
+        image_load(PhotoImage(file=opened_file))
+        label_title.configure(text=opened_file.split("/")[-1])
+        window.title(opened_file.split("/")[-1])
+
 # 프로그램 종료 함수
 def app_exit():
     yes_or_no = messagebox.askyesno("Exit", "프로그램을 정말 종료하시겠습니까?")
-    if yes_or_no == 1:  # [Yes] 선택 시
-        quit()          # 프로그램 종료
+    if yes_or_no == 1:  # [Yes] 선택 시 프로그램 종료
+        window.quit()
+        window.destroy()
+        exit()
+
+#############################################################################################
 
 # 이전 버튼 또는 해당 키 입력 시 호출되는 함수
 def go_prev_image():
@@ -75,10 +98,8 @@ def go_prev_image():
     photo_page -= 1
     if photo_page < 0:
         photo_page = len(filename_list) - 1
-    photo = PhotoImage(file="image/" + filename_list[photo_page])
-    label_img.configure(image=photo)
-    label_img.image = photo
-    label_title.configure(text=filename_list[photo_page])
+    image_load(PhotoImage(file=IMAGE_DIR + filename_list[photo_page]))
+    window.title(filename_list[photo_page])
 
 # 다음 버튼 또는 해당 키 입력 시 호출되는 함수
 def go_next_image():
@@ -86,7 +107,8 @@ def go_next_image():
     photo_page += 1
     if photo_page > len(filename_list) - 1:
         photo_page = 0
-    image_load(PhotoImage(file="image/" + filename_list[photo_page]))
+    image_load(PhotoImage(file=IMAGE_DIR + filename_list[photo_page]))
+    window.title(filename_list[photo_page])
 
 # 이미지 로드
 def image_load(photo):
@@ -97,7 +119,8 @@ def image_load(photo):
 #############################################################################################
 
 # 데이터 저장
-filename_list = ["jeju1.png", "jeju2.png", "jeju3.png"]
+extension_list = tuple([FILE_TYPES[i][1].replace('*', '') for i in range(len(FILE_TYPES)-1)])   # 확장자 튜플
+filename_list = file_list = [f for f in os.listdir(IMAGE_DIR) if f.endswith(extension_list)]
 photo_list = [None] * len(filename_list)
 photo_page = 0
 
@@ -107,9 +130,21 @@ photo_page = 0
 window = Tk()
 
 # 멤버 함수 호출을 통한 윈도우 속성 변경
-window.title("제목 표시줄")
-window.geometry("400x500")  # 윈도우 초기 크기
+window.title(filename_list[0])
+window.geometry(f"{WINDOW_SIZE[0]}x{WINDOW_SIZE[1]}")  # 윈도우 초기 크기
 window.resizable(width=False, height=False) # 윈도우 창 크기 수동 조절 가능 여부
+
+#############################################################################################
+
+# 메뉴 생성
+mainMenu = Menu(window)         # 메뉴 객체 생성
+window.config(menu=mainMenu)    # 윈도우에 메뉴 추가
+
+fileMenu = Menu(mainMenu)
+mainMenu.add_cascade(label="파일", menu=fileMenu)   # 상위 메뉴 생성
+fileMenu.add_command(label="파일 열기", command=file_open)  # 하위 메뉴 생성
+fileMenu.add_separator()            # 구분선 생성
+fileMenu.add_command(label="프로그램 종료", command=app_exit)  # 하위 메뉴 생성
 
 #############################################################################################
 
@@ -117,23 +152,23 @@ window.resizable(width=False, height=False) # 윈도우 창 크기 수동 조절
 label_state = Label(window, text="(null)", bg="magenta", anchor=SE)  # anchor=SE : 남동쪽(우하단)에 텍스트 정렬
 
 # 레이블 위젯(객체) 생성
-label_title = Label(window, text=filename_list[0], font=("궁서체", 20), fg="blue", bg="yellow")
-photo = PhotoImage(file="image/" + filename_list[0])    # 이미지 출력
+label_title = Label(window, text=filename_list[0], font=("맑은 고딕", 15), fg="blue", bg="white")
+photo = PhotoImage(file=IMAGE_DIR + filename_list[0])    # 이미지 출력
 label_img = Label(window, image=photo, width=350, height=200)
 
 # 버튼 위젯 생성
-btn_quit = Button(window, text="파이썬 종료", fg="red", command=app_exit)
+btn_quit = Button(window, text="프로그램 종료", fg="red", command=app_exit)
 btn_prev = Button(window, text="<< 이전", fg="blue", command=go_prev_image)
 btn_next = Button(window, text="다음 >>", fg="blue", command=go_next_image)
 
 # 체크박스 위젯 생성
 chk = IntVar()  # 체크박스 상태를 저장할 변수  
-cb1 = Checkbutton(window, text="클릭하세요", variable=chk, command=func_cb)
+cb1 = Checkbutton(window, text="CheckBox", variable=chk, command=func_cb)
 
 # 라디오버튼 위젯 생성
 var = IntVar()  # 라디오박스 상태를 저장할 변수
 rb_list = [None] * 3                # 라디오박스 리스트
-rb_text = ["파이썬", "C++", "Java"]  # 라디오박스 텍스트 리스트
+rb_text = ["Radio A", "Radio B", "Radio C"]  # 라디오박스 텍스트 리스트
 for i in range(3):
     rb_list[i] = Radiobutton(window, text=rb_text[i], variable=var, value=i+1, command=func_rb)
 
