@@ -2,9 +2,8 @@ from tkinter import *
 from tkinter import ttk
 
 window = Tk()
-window.title("Calculator")
+window.title("Calc")
 window.geometry("350x190")
-window.resizable(width=False, height=False) # 윈도우 크기 수동 조절 불가능
 
 def key_input(value):
     print(value)
