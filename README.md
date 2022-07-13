@@ -4,6 +4,11 @@ Python 언어로 간단하게 프로그래밍을 연습한 결과물들을 모�
 
 ---
 
+- ## [starcraft_project](https://github.com/2sjin/Python_Programming_Practice/tree/main/starcraft_project)
+- ## [Others](https://github.com/2sjin/Python_Programming_Practice/tree/main/Others)
+
+---
+
 ## 지뢰찾기
 
 ![image](https://user-images.githubusercontent.com/91407433/152627843-15d4adac-6094-439f-bfb1-6ecb417053c4.png)
