@@ -8,6 +8,7 @@
 - 입력한 학번과 이름을 그대로 출력함
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459206-25952774-3201-4c29-9304-7e9e14724236.png)
 
 ### 소감
 가장 기본적인 문자열 입출력 문제여서 매우 쉬웠다.
@@ -21,6 +22,7 @@
 - A가 홀수이면 2*B-7 연산 결과를 출력함
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459232-f793520e-e18c-4985-a87d-c58d1b988cfb.png)
 
 ### 소감
 기본 입출력에 연산자와 조건문이 추가된 것 뿐이라 쉬웠다.
@@ -36,6 +38,7 @@
 
 ### 소감
 1~2번 문제와 마찬가지로 입출력과 간단한 연산이 포함된 문제였다. 이 문제도 역시 쉽게 풀 수 있었다.
+![image](https://user-images.githubusercontent.com/91407433/197459245-d46d2a80-6007-4702-9eb0-cd30cef75085.png)
 
 ---
 
@@ -47,6 +50,7 @@
 - 동전은 500원, 100원, 50원, 10원, 5원, 1원이 충분히 있음
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459260-60327fcd-5c6a-4efa-b492-6b356fde4ac5.png)
 
 ### 소감
 그리디 알고리즘을 공부하면서 보았던 익숙한 문제여서 어렵지 않게 풀 수 있었다.
@@ -62,6 +66,7 @@
 - 정답을 맞히거나, 기회 8번을 모두 사용하면 게임 종료
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459274-d3ffc5ac-51bf-4d5f-bfcb-0fc2a210531c.png)
 
 ### 소감
 난수 생성을 위해 random 라이브러리를 불러오고, 반복문과 조건문을 적절하게 사용해야 하는 복합적인 문제였지만,
@@ -88,6 +93,7 @@
 |F|60 미만|
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459305-78b2e9ec-5f6a-498b-bc1b-dc05357be28f.png)
 
 ### 소감
 단순히 if\~elif\~else 문으로 범위를 나누기만 하면 되는 간단한 문제다.
@@ -105,6 +111,7 @@ Python에서는 아쉽게도 switch\~case문이 없어 딕셔너리로 접근해
 - 상자에 대한 정보와 상자의 부피를 출력함(접근자와 설정자 사용)
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459284-8c42492d-1bca-442a-a79b-780616ec37ec.png)
 
 ### 소감
 클래스와 객체에 대한 개념은 이미 다른 프로그래밍 언어를 다루면서 여러 번 학습했기에, 별 어려움이 없었다.
@@ -119,6 +126,10 @@ Python에서는 아쉽게도 switch\~case문이 없어 딕셔너리로 접근해
 - enc, dec 함수 정의
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459324-db08add9-1d0a-4685-8238-654fad3255df.png)
+![image](https://user-images.githubusercontent.com/91407433/197459330-5740bdba-1cd6-409a-9d7a-071c30f10192.png)
+![image](https://user-images.githubusercontent.com/91407433/197459339-6b067f1e-c196-4572-8f78-266ad1bfcdcd.png)
+![image](https://user-images.githubusercontent.com/91407433/197459342-496b1206-b28c-463e-825c-845e2791e785.png)
 
 ### 소감
 시저 암호는 정보보호 과목에서도 다루었고, Python으로 문자열을 응용하면서도 예제로 많이 다루어 익숙하였다.
@@ -135,6 +146,7 @@ Python에서는 아쉽게도 switch\~case문이 없어 딕셔너리로 접근해
 > S = 1 + (1*2) + (1*2 *3) + … + (1 *2 * 3 * … * A)
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459360-ff5168ea-1083-490c-92f0-a009629123e8.png)
 
 ### 소감
 명령행 인자는 bash shell 프로그래밍 과제와 gcc 이해 과제를 수행하면서 개념을 잘 익혔었다.
@@ -149,6 +161,9 @@ Python에서는 아쉽게도 switch\~case문이 없어 딕셔너리로 접근해
 - 다음 연산 결과를 출력 파일(Result.txt)에 쓰기
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459501-1a720baf-c5b1-4eaa-a8b1-ddeb37e037b0.png)
+![image](https://user-images.githubusercontent.com/91407433/197459396-089af999-115c-4808-a633-3ead8c284f82.png)
+![image](https://user-images.githubusercontent.com/91407433/197459398-9b87f997-570f-4229-a474-6b3875e22ea2.png)
 
 ### 소감
 파일 입출력과 명령행 인자가 모두 요구되는 문제였지만,
