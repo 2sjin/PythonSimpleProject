@@ -35,10 +35,10 @@
 - 이름을 포함한 인사말, 10년 후의 나이를 출력함
 
 ### 실행 결과
+![image](https://user-images.githubusercontent.com/91407433/197459245-d46d2a80-6007-4702-9eb0-cd30cef75085.png)
 
 ### 소감
 1~2번 문제와 마찬가지로 입출력과 간단한 연산이 포함된 문제였다. 이 문제도 역시 쉽게 풀 수 있었다.
-![image](https://user-images.githubusercontent.com/91407433/197459245-d46d2a80-6007-4702-9eb0-cd30cef75085.png)
 
 ---
 
