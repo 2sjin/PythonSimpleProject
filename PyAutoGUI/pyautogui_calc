@@ -1,4 +1,4 @@
-# Windows 10 계산기 실행
+# Windows 10 계산기 먼저 실행하기
 
 import pyautogui
 
@@ -51,10 +51,10 @@ def click_buttons(btns_str):
 
 
 def main():
-    print(pyautogui.position())
-    capture_buttons(1345, 562)
-    # click_buttons("12345+67890")
-    # click_buttons("3*4+5-6/2")
+    # print(pyautogui.position())   # 현재 마우스 포인터 위치 출력('7' 좌측 상단에 놓기)
+    # capture_buttons(1345, 562)    # 계산기 버튼 캡처하기
+    click_buttons("12345+67890")
+    click_buttons("3*4+5-6/2")
 
 
 if __name__ == "__main__":
