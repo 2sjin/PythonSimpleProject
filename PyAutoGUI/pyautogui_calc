@@ -15,26 +15,21 @@ SYMBOL_DIC = {  "C": "clear",
 # 스크린샷(x좌표, y좌표, 가로, 세로)
 def capture_buttons(seven_x, seven_y):
     dx = 105    # 버튼 사이 x 거리
-    dy = 70     # 버튼 사이 y 거리
+    dy = 68     # 버튼 사이 y 거리
 
-    pyautogui.screenshot(IMG_PATH + "7.png", region=(seven_x+(dx*0), seven_y+(dy*0), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "8.png", region=(seven_x+(dx*1), seven_y+(dy*0), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "9.png", region=(seven_x+(dx*2), seven_y+(dy*0), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "4.png", region=(seven_x+(dx*0), seven_y+(dy*1), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "5.png", region=(seven_x+(dx*1), seven_y+(dy*1), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "6.png", region=(seven_x+(dx*2), seven_y+(dy*1), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "1.png", region=(seven_x+(dx*0), seven_y+(dy*2), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "2.png", region=(seven_x+(dx*1), seven_y+(dy*2), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "3.png", region=(seven_x+(dx*2), seven_y+(dy*2), 30, 30))
+    # 피연산자 및 equal 기호 스크린샷
+    for i, fname in enumerate(["equal", "add", "sub", "mul", "div"]):
+        pyautogui.screenshot(IMG_PATH + fname + ".png", region=(seven_x+(dx*3), seven_y+(dy*(3-i)), 30, 30))
+
+    # 숫자(1~9) 스크린샷
+    for i in range(3):
+        for j in range(3):
+            num = (3 * i) + j + 1
+            pyautogui.screenshot(IMG_PATH + str(num) + ".png", region=(seven_x+(dx*j), seven_y+(dy*(2-i)), 30, 30))            
+
+    # 숫자(0), dot, clear 스크린샷 
     pyautogui.screenshot(IMG_PATH + "0.png", region=(seven_x+(dx*1), seven_y+(dy*3), 30, 30))
-
     pyautogui.screenshot(IMG_PATH + "dot.png", region=(seven_x+(dx*2), seven_y+(dy*3), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "equal.png", region=(seven_x+(dx*3), seven_y+(dy*3), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "add.png", region=(seven_x+(dx*3), seven_y+(dy*2), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "sub.png", region=(seven_x+(dx*3), seven_y+(dy*1), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "mul.png", region=(seven_x+(dx*3), seven_y+(dy*0), 30, 30))
-    pyautogui.screenshot(IMG_PATH + "div.png", region=(seven_x+(dx*3), seven_y+(dy*(-1)), 30, 30))
-
     pyautogui.screenshot(IMG_PATH + "clear.png", region=(seven_x+(dx*2), seven_y+(dy*(-2)), 30, 30))
 
 
@@ -56,9 +51,10 @@ def click_buttons(btns_str):
 
 
 def main():
-    # print(pyautogui.position())
-    # capture_buttons(1345, 562)
-    click_buttons("125*125")
+    print(pyautogui.position())
+    capture_buttons(1345, 562)
+    # click_buttons("12345+67890")
+    # click_buttons("3*4+5-6/2")
 
 
 if __name__ == "__main__":
