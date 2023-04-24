@@ -55,7 +55,7 @@ def main():
     # capture_buttons(1345, 562)    # 계산기 버튼 캡처하기
     click_buttons("12345+67890")
     click_buttons("3*4+5-6/2")
-
+    click_buttons("1.5+2.5")
 
 if __name__ == "__main__":
     main()
