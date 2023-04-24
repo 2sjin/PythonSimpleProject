@@ -1,0 +1,56 @@
+import pyautogui
+
+IMG_PATH = "PyAutoGUI/img/"
+
+# 스크린샷(x좌표, y좌표, 가로, 세로)
+def capture_buttons(seven_x, seven_y):
+    dx = 105
+    dy = 70
+
+    pyautogui.screenshot(IMG_PATH + "7.png", region=(seven_x+(dx*0), seven_y+(dy*0), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "8.png", region=(seven_x+(dx*1), seven_y+(dy*0), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "9.png", region=(seven_x+(dx*2), seven_y+(dy*0), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "4.png", region=(seven_x+(dx*0), seven_y+(dy*1), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "5.png", region=(seven_x+(dx*1), seven_y+(dy*1), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "6.png", region=(seven_x+(dx*2), seven_y+(dy*1), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "1.png", region=(seven_x+(dx*0), seven_y+(dy*2), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "2.png", region=(seven_x+(dx*1), seven_y+(dy*2), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "3.png", region=(seven_x+(dx*2), seven_y+(dy*2), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "0.png", region=(seven_x+(dx*1), seven_y+(dy*3), 30, 30))
+
+    pyautogui.screenshot(IMG_PATH + "dot.png", region=(seven_x+(dx*2), seven_y+(dy*3), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "equal.png", region=(seven_x+(dx*3), seven_y+(dy*3), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "add.png", region=(seven_x+(dx*3), seven_y+(dy*2), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "sub.png", region=(seven_x+(dx*3), seven_y+(dy*1), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "mul.png", region=(seven_x+(dx*3), seven_y+(dy*0), 30, 30))
+    pyautogui.screenshot(IMG_PATH + "div.png", region=(seven_x+(dx*3), seven_y+(dy*(-1)), 30, 30))
+
+    pyautogui.screenshot(IMG_PATH + "clear.png", region=(seven_x+(dx*2), seven_y+(dy*(-2)), 30, 30))
+
+
+def click_buttons(s):
+    btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}clear.png")    
+    pyautogui.click(btn_pos)
+
+    for btn in s:
+        btn = btn.replace(".", "dot")
+        btn = btn.replace("=", "equal")
+        btn = btn.replace("+", "add")
+        btn = btn.replace("-", "sub")
+        btn = btn.replace("*", "mul")
+        btn = btn.replace("/", "div")
+        btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}{btn}.png")
+        pyautogui.click(btn_pos)
+
+    btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}equal.png")    
+    pyautogui.click(btn_pos)
+
+
+def main():
+    # print(pyautogui.position())
+    # capture_buttons(1345, 562)
+    click_buttons("125*125")
+
+
+if __name__ == "__main__":
+    main()
