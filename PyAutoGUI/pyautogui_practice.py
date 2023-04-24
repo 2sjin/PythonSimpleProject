@@ -17,7 +17,7 @@ pyautogui.doubleClick()
 
 time.sleep(0.5)
 
-# 글자 타이핑
+# 키보드 타이핑
 pyautogui.typewrite("Hello World!")
 pyautogui.typewrite(["space", "a", "b", "c", "enter"])
 pyautogui.typewrite("PyAutoGUI")

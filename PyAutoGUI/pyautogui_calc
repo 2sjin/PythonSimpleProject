@@ -1,11 +1,21 @@
+# Windows 10 계산기 실행
+
 import pyautogui
 
 IMG_PATH = "PyAutoGUI/img/"
+SYMBOL_DIC = {  "C": "clear",
+                ".": "dot",
+                "=": "equal",
+                "+": "add",
+                "-": "sub",
+                "*": "mul",
+                "/": "div" }
+
 
 # 스크린샷(x좌표, y좌표, 가로, 세로)
 def capture_buttons(seven_x, seven_y):
-    dx = 105
-    dy = 70
+    dx = 105    # 버튼 사이 x 거리
+    dy = 70     # 버튼 사이 y 거리
 
     pyautogui.screenshot(IMG_PATH + "7.png", region=(seven_x+(dx*0), seven_y+(dy*0), 30, 30))
     pyautogui.screenshot(IMG_PATH + "8.png", region=(seven_x+(dx*1), seven_y+(dy*0), 30, 30))
@@ -28,22 +38,21 @@ def capture_buttons(seven_x, seven_y):
     pyautogui.screenshot(IMG_PATH + "clear.png", region=(seven_x+(dx*2), seven_y+(dy*(-2)), 30, 30))
 
 
-def click_buttons(s):
-    btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}clear.png")    
-    pyautogui.click(btn_pos)
+# 문자열에 따라 계산기 버튼 클릭
+def click_buttons(btns_str):
+    btns_str = "C" + btns_str + "="
 
-    for btn in s:
-        btn = btn.replace(".", "dot")
-        btn = btn.replace("=", "equal")
-        btn = btn.replace("+", "add")
-        btn = btn.replace("-", "sub")
-        btn = btn.replace("*", "mul")
-        btn = btn.replace("/", "div")
+    # 문자열 하나씩 확인
+    for btn in btns_str:
+        # 기호 문자열을 영어(이미지 파일명)으로 변환
+        for k, v in SYMBOL_DIC.items():
+            if btn == k:
+                btn = btn.replace(k, v)
+                break
+
+        # 화면에서 이미지 찾아서 클릭
         btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}{btn}.png")
         pyautogui.click(btn_pos)
-
-    btn_pos = pyautogui.locateCenterOnScreen(f"{IMG_PATH}equal.png")    
-    pyautogui.click(btn_pos)
 
 
 def main():
