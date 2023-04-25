@@ -28,6 +28,8 @@ for idx, item in enumerate(items, 1):
     blog_title = item.select_one(".sub_txt.sub_name").text
     print(blog_title)
 
-    # 글 제목 출력
-    post_title = item.select_one(".api_txt_lines.total_tit").text
-    print(post_title)
+    # 글 제목, URL 출력
+    post_title = item.select_one(".api_txt_lines.total_tit")
+    print(post_title.text)
+    print(post_title.get("href"))   # URL 없으면 None 리턴
+    # print(post_title["href"])     # URL 없으면 예외 발생
