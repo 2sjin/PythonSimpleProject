@@ -13,7 +13,7 @@ from tkinter.simpledialog import *
 FILE_TYPES = (("PNG 파일", "*.png"), ("GIF 파일", "*.gif"), ("JPG 파일", "*.jpg"), ("모든 파일", "*.*"))
 
 WINDOW_SIZE = (400, 500)
-IMAGE_DIR = "image/"    # 이미지 디렉토리
+IMAGE_DIR = "Others/image/"    # 이미지 디렉토리
 
 #############################################################################################
 
