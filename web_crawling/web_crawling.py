@@ -1,7 +1,7 @@
 from bs4 import BeautifulSoup
 import requests
 
-base_url = "https://search.naver.com/search.naver?where=view&sm=tab_jum&query="
+base_url = "https://search.naver.com/search.naver?where=blog&query="
 keyword = input("검색어를 입력하세요: ")
 search_url = base_url + keyword
 
