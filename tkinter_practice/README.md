@@ -1,4 +1,4 @@
-# Others
+# tkinter_practice
 
 ---
 
