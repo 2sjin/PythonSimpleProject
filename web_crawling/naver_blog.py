@@ -13,7 +13,7 @@ search_url = base_url + keyword
 # 웹드라이버 열기
 driver = webdriver.Chrome()
 
-# URL 페이지 정보 가져오기
+# URL 접속 후, 페이지 정보 요청하기
 r = driver.get(search_url)
 # r = requests.get(search_url)
 time.sleep(3)
@@ -28,7 +28,7 @@ html = driver.page_source
 # html = r.text
 soup = BeautifulSoup(html, "html.parser")
 
-# 특정 클래스만 선택(맨 앞/띄어쓰기 -> '.' 기호)
+# 특정 클래스만 선택(각 클래스명 앞에 '.' 기호 붙이기)
 items = soup.select(".total_wrap.api_ani_send")
 
 # 웹 크롤링 결과 출력

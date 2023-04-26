@@ -17,7 +17,7 @@ options.add_experimental_option("detach", True)
 # 웹드라이버 열기
 driver = webdriver.Chrome()
 
-# URL 페이지 정보 가져오기
+# URL 접속 후, 페이지 정보 요청하기
 driver.get(url)
 time.sleep(1)
 
