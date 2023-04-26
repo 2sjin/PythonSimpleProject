@@ -1,4 +1,5 @@
 # 네이버 메인 화면에서 키워드 검색
+# 셀레니움4 find_element 활용
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
