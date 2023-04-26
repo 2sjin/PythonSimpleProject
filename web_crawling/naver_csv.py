@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 FILE_PATH = "web_crawling/csv"
 
 keyword = input("검색어를 입력하세요: ")
-url = "https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query=" + quote_plus(keyword)
+url = "https://m.search.naver.com/search.naver?where=m_view&sm=mtb_jum&query=" + quote_plus(keyword)    # 키워드 인코딩
 
 # URL 접속 후, 페이지 읽기
 html = urlopen(url).read()
